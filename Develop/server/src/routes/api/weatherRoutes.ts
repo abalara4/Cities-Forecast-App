@@ -10,12 +10,14 @@ router.post('/', (req, res) => {
   res.json(city);
   let weather = WeatherService.getWeatherForCity(city);
   res.json(weather);
+  HistoryService.addCity(city);
+  
   // TODO: GET weather data from city name
   // TODO: save city to search history
 });
 
 // TODO: GET search history
-router.get('/history', async (_req, res) => {
+router.get('/api/weather/history', async (_req, res) => {
   let cities = await HistoryService.getCities();
   res.json(cities);
 });

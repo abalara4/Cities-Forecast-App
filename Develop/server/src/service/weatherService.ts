@@ -40,6 +40,7 @@ class WeatherService {
   constructor() {
     this.baseURL = process.env.BASEURL || '';
     this.apiKey = process.env.API_KEY as string;
+    this.cityName = '';
   }
   // TODO: Create fetchLocationData method
   private async fetchLocationData(query: string) {
